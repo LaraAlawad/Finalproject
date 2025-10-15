@@ -1,0 +1,219 @@
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.left {
+  width: 50%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.rightImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.logo {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 140px;
+}
+
+.right {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+  background-color: #ffffff;
+}
+
+h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+p {
+  font-size: 0.9rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.socialButtons {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.socialButtons button {
+  border: 1px solid #ccc;
+  background: transparent;
+  padding: 8px 16px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.socialButtons button:hover {
+  background-color: #f2f2f2;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 20px 0;
+}
+
+.separator::before,
+.separator::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: #ddd;
+}
+
+.separator span {
+  margin: 0 10px;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.form {
+  width: 80%;
+  max-width: 400px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 10px;
+  font-size: 0.9rem;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #48b8b5;
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.toggleEye {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.errorInput {
+  border-color: red !important;
+}
+
+.submitBtn {
+  background-color: #48b8b5;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px;
+  width: 100%;
+  margin-top: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  box-sizing: border-box;
+}
+
+.submitBtn:hover {
+  background-color: #3aa09e;
+}
+
+.asButton {
+  margin-top: 10px;
+}
+
+.forgot {
+  text-align: right;
+  width: 100%;
+  margin-bottom: 5px;
+}
+
+.forgot a {
+  font-size: 0.85rem;
+  color: #48b8b5;
+  text-decoration: none;
+}
+
+.forgot a:hover {
+  text-decoration: underline;
+}
+
+.signupText {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.signupText a {
+  color: #48b8b5;
+  text-decoration: none;
+}
+
+.signupText a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .left {
+    width: 100%;
+    height: 300px;
+  }
+
+  .right {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .form {
+    width: 100%;
+  }
+}

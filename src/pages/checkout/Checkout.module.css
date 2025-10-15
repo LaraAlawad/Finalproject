@@ -1,0 +1,121 @@
+.checkoutContainer {
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 30px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.1);
+}
+
+.formWrapper h2 {
+  text-align: center;
+  color: #1a1b4b;
+  margin-bottom: 8px;
+}
+
+.formWrapper p {
+  text-align: center;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input input {
+  background-color: #fafafa !important;
+  border-radius: 8px !important;
+}
+
+.paymentSection {
+  margin-top: 10px;
+}
+
+.paymentLabel {
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+  color: #333;
+}
+
+.paymentOptions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.paymentOptions label {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.errorText {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 5px;
+}
+
+.payBtn {
+  background-color: #48b8b5 !important;
+  font-weight: 600 !important;
+  padding: 12px 0 !important;
+  border-radius: 10px !important;
+  margin-top: 15px !important;
+}
+
+.payBtn:hover {
+  background-color: #3aa09e !important;
+}
+
+.successContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  text-align: center;
+}
+
+.successBox {
+  background-color: #f8fdfc;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.successIcon {
+  width: 100px;
+  margin-bottom: 20px;
+}
+
+.successBox h2 {
+  color: #1a1b4b;
+  margin-bottom: 10px;
+}
+
+.successBox p {
+  color: #555;
+  margin-bottom: 25px;
+}
+
+.continueBtn {
+  background-color: #48b8b5 !important;
+  font-weight: bold !important;
+  border-radius: 8px !important;
+}
+
+.continueBtn:hover {
+  background-color: #3aa09e !important;
+}
+
+@media (max-width: 768px) {
+  .checkoutContainer {
+    padding: 20px;
+  }
+
+  .paymentOptions {
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,219 @@
+.hero {
+  width: 100%;
+  background: linear-gradient(to bottom, #eafcff, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 50px 0;
+  overflow: hidden;
+}
+
+.sliderWrapper {
+  width: 85%;
+  overflow: hidden;
+}
+
+.slider {
+  display: flex;
+  gap: 25px;
+  transition: transform 0.6s ease;
+}
+
+.card {
+  flex: 0 0 48%;
+  border-radius: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px;
+  color: #fff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  min-height: 280px;
+  transition: all 0.3s ease;
+}
+
+.heroContent {
+  max-width: 50%;
+}
+
+.badge {
+  background-color: #ffffff;
+  color: #000;
+  font-weight: 600;
+  border-radius: 20px;
+  padding: 4px 12px;
+  font-size: 0.85rem;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.heroContent h2 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+.heroContent p {
+  font-size: 0.95rem;
+  color: #f0f0f0;
+  margin-bottom: 20px;
+}
+
+.buyBtn {
+  background-color: #fff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buyBtn:hover {
+  background-color: #f2f2f2;
+}
+
+.heroImage img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.arrowLeft,
+.arrowRight {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #ffffff;
+  color: #000;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+  z-index: 2;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+  background-color: #f2f2f2;
+}
+
+.arrowLeft {
+  left: 40px;
+}
+
+.arrowRight {
+  right: 40px;
+}
+
+/* ========================= */
+/*       Responsive Design   */
+/* ========================= */
+
+@media (max-width: 1024px) {
+  .sliderWrapper {
+    width: 90%;
+  }
+
+  .card {
+    flex: 0 0 80%;
+    padding: 40px;
+  }
+
+  .heroContent h2 {
+    font-size: 1.6rem;
+  }
+
+  .heroImage img {
+    width: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 40px 0;
+  }
+
+  .slider {
+    gap: 20px;
+  }
+
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: center;
+    padding: 30px;
+    min-height: auto;
+  }
+
+  .heroContent {
+    max-width: 100%;
+  }
+
+  .heroContent h2 {
+    font-size: 1.4rem;
+  }
+
+  .heroContent p {
+    font-size: 0.9rem;
+    color: #333;
+  }
+
+  .heroImage img {
+    width: 150px;
+    margin-top: 20px;
+  }
+
+  .arrowLeft,
+  .arrowRight {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 30px 0;
+  }
+
+  .sliderWrapper {
+    width: 95%;
+  }
+
+  .card {
+    padding: 25px;
+  }
+
+  .heroContent h2 {
+    font-size: 1.2rem;
+  }
+
+  .heroContent p {
+    font-size: 0.85rem;
+  }
+
+  .buyBtn {
+    font-size: 0.9rem;
+    padding: 8px 20px;
+  }
+
+  .heroImage img {
+    width: 130px;
+  }
+
+  .arrowLeft {
+    left: 15px;
+  }
+
+  .arrowRight {
+    right: 15px;
+  }
+}

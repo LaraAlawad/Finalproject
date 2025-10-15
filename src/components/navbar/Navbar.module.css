@@ -1,0 +1,160 @@
+.navbar {
+  width: 100%;
+  background-color: #48b8b5;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.navbarContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+.navbarLinks {
+  display: flex;
+  list-style: none;
+  gap: 26px;
+}
+
+.navbarLinks a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: 0.3s ease;
+}
+
+.navbarLinks a:hover {
+  color: #1a1b4b;
+}
+
+.navbarActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.btnLogin {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 8px;
+  padding: 6px 18px;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.btnRegister {
+  background-color: #1a1b4b;
+  color: #ffffff;
+  border-radius: 8px;
+  padding: 6px 18px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+.icon {
+  color: #ffffff;
+  font-size: 1.3rem;
+  margin-left: 18px;
+  transition: 0.3s;
+}
+
+.icon:hover {
+  color: #1a1b4b;
+}
+
+.btnLogout {
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 8px;
+  padding: 6px 18px;
+  font-weight: 500;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btnLogout:hover {
+  background-color: #e5e5e5;
+}
+
+.cartIconWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #ff4d4f;
+  color: white;
+  font-size: 0.7rem;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .navbarContainer {
+    padding: 10px 18px;
+  }
+  .logo {
+    width: 160px;
+  }
+  .navbarLinks {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbarContainer {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .navbarLinks {
+    display: none;
+  }
+  .navbarActions {
+    gap: 8px;
+  }
+  .btnLogin,
+  .btnRegister,
+  .btnLogout {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 130px;
+  }
+  .btnLogin,
+  .btnRegister,
+  .btnLogout {
+    font-size: 0.8rem;
+    padding: 5px 10px;
+  }
+  .navbarContainer {
+    padding: 8px 12px;
+  }
+}

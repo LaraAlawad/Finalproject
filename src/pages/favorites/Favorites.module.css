@@ -1,0 +1,200 @@
+.favoritesPage {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.favoritesPage h2 {
+  color: #1a1b4b;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+/* ===== EMPTY STATE ===== */
+.emptyState {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #555;
+  text-align: center;
+}
+
+.emptyIcon {
+  font-size: 3rem;
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.emptyState h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #1a1b4b;
+}
+
+.emptyState p {
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 6px;
+}
+
+.shopNowBtn {
+  margin-top: 18px;
+  background-color: #48b8b5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 24px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.shopNowBtn:hover {
+  background-color: #1a1b4b;
+}
+
+/* ===== FILLED STATE ===== */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  padding: 14px;
+  position: relative;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.card h4 {
+  margin: 10px 0 4px;
+  color: #222;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.card p {
+  color: #777;
+  font-size: 0.85rem;
+}
+
+.card span {
+  display: block;
+  color: #48b8b5;
+  font-weight: 700;
+  margin: 6px 0;
+  font-size: 0.95rem;
+}
+
+.activeHeart {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-size: 1.3rem;
+  color: #48b8b5;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.activeHeart:hover {
+  color: #1a1b4b;
+}
+
+/* ====== RESPONSIVE DESIGN ====== */
+
+@media (max-width: 992px) {
+  .favoritesPage {
+    margin: 30px auto;
+    padding: 0 15px;
+  }
+
+  .favoritesPage h2 {
+    font-size: 1.6rem;
+  }
+
+  .grid {
+    gap: 18px;
+  }
+
+  .card img {
+    height: 160px;
+  }
+}
+
+@media (max-width: 768px) {
+  .favoritesPage {
+    padding: 0 12px;
+  }
+
+  .favoritesPage h2 {
+    font-size: 1.4rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .emptyIcon {
+    font-size: 2.5rem;
+  }
+
+  .shopNowBtn {
+    padding: 8px 20px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .favoritesPage {
+    padding: 0 10px;
+  }
+
+  .favoritesPage h2 {
+    font-size: 1.2rem;
+  }
+
+  .card img {
+    height: 140px;
+  }
+
+  .card h4 {
+    font-size: 0.9rem;
+  }
+
+  .card p {
+    font-size: 0.8rem;
+  }
+
+  .card span {
+    font-size: 0.9rem;
+  }
+
+  .shopNowBtn {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+
+  .emptyState h3 {
+    font-size: 1.1rem;
+  }
+}

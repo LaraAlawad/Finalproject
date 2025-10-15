@@ -1,0 +1,244 @@
+.bestSellers {
+  width: 100%;
+  background-color: #fff;
+  padding: 60px 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto 30px;
+  width: 80%;
+}
+
+.header h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #111;
+}
+
+/* ====== See All Button with Animated Underline ====== */
+.seeAll {
+  position: relative;
+  color: #00a0a0;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.seeAll::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background-color: #00a0a0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.seeAll:hover {
+  color: #007777;
+}
+
+.seeAll:hover::after {
+  transform: scaleX(1);
+}
+
+/* ====== Products Grid ====== */
+.productsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.card {
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+/* ====== Product Image ====== */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.imageWrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ====== Favorite Button ====== */
+.favoriteBtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  font-size: 1rem;
+  color: #444;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.favoriteBtn:hover {
+  background-color: #f2f2f2;
+}
+
+/* ====== Product Info ====== */
+.info {
+  padding: 12px 15px 18px;
+}
+
+.name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 5px;
+}
+
+.desc {
+  font-size: 0.8rem;
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #000;
+}
+
+/* ========================= */
+/*       Responsive Design   */
+/* ========================= */
+
+@media (max-width: 1200px) {
+  .productsGrid {
+    width: 85%;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .imageWrapper {
+    height: 200px;
+  }
+}
+
+@media (max-width: 992px) {
+  .productsGrid {
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .imageWrapper {
+    height: 180px;
+  }
+
+  .name {
+    font-size: 0.9rem;
+  }
+
+  .price {
+    font-size: 0.9rem;
+  }
+
+  .header {
+    width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .bestSellers {
+    padding: 40px 0;
+  }
+
+  .productsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+    gap: 18px;
+  }
+
+  .imageWrapper {
+    height: 160px;
+  }
+
+  .header h2 {
+    font-size: 1.2rem;
+  }
+
+  .seeAll {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .productsGrid {
+    grid-template-columns: 1fr;
+    width: 90%;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .imageWrapper {
+    height: 200px;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+
+  .header h2 {
+    font-size: 1.1rem;
+  }
+
+  .seeAll {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .productsGrid {
+    width: 95%;
+  }
+
+  .imageWrapper {
+    height: 180px;
+  }
+
+  .name {
+    font-size: 0.85rem;
+  }
+
+  .desc {
+    font-size: 0.75rem;
+  }
+
+  .price {
+    font-size: 0.85rem;
+  }
+}
