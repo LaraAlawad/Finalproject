@@ -81,7 +81,35 @@ textarea:focus {
   font-weight: 600;
 }
 
-/* Fade-in animation */
+/* ===== Success Popup ===== */
+.successOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  animation: fadeIn 0.4s ease;
+}
+
+.successBox {
+  background-color: #ffffff;
+  color: #1a1b4b;
+  font-weight: 600;
+  font-size: 1.4rem;
+  padding: 40px 60px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: popIn 0.4s ease;
+  border: 2px solid #48b8b5;
+}
+
+/* ===== Animations ===== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -93,16 +121,34 @@ textarea:focus {
   }
 }
 
-/* Responsive */
+@keyframes popIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 768px) {
   .container {
     width: 100%;
   }
+
   h1 {
     font-size: 1.7rem;
   }
+
   input,
   textarea {
     font-size: 0.95rem;
+  }
+
+  .successBox {
+    font-size: 1.1rem;
+    padding: 30px 40px;
   }
 }

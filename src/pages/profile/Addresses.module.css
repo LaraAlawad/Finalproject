@@ -1,0 +1,284 @@
+.profileContainer {
+  display: flex;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.userInfo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.userInfo h3 {
+  font-size: 1.1rem;
+  color: #1a1b4b;
+  margin-bottom: 5px;
+}
+
+.userInfo p {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.navMenu ul {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.navMenu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.navMenu li:hover {
+  background-color: #e4f7f6;
+}
+
+.navMenu .active {
+  background-color: #48b8b5;
+  color: #fff;
+}
+
+.logoutBtn {
+  margin-top: auto;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.logoutBtn:hover {
+  background-color: #48b8b5;
+  color: #fff;
+}
+
+/* Main */
+.profileContent {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.addBtn {
+  background: #48b8b5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.addBtn:hover {
+  background: #1a1b4b;
+}
+
+.empty {
+  text-align: center;
+  margin-top: 50px;
+  color: #777;
+}
+
+.addAddressBtn {
+  margin-top: 10px;
+  background: #48b8b5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.addAddressBtn:hover {
+  background: #1a1b4b;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+}
+
+.form input:focus {
+  border-color: #48b8b5;
+  box-shadow: 0 0 0 2px rgba(72, 184, 181, 0.2);
+}
+
+.formButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.saveBtn {
+  background-color: #48b8b5;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.saveBtn:hover {
+  background-color: #1a1b4b;
+}
+
+.cancelBtn {
+  background: #ccc;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.cancelBtn:hover {
+  background: #aaa;
+}
+
+/* Address Cards */
+.addressList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.addressCard {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.addressCard h4 {
+  color: #1a1b4b;
+  margin-bottom: 6px;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.editBtn,
+.deleteBtn {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.editBtn {
+  background: #48b8b5;
+  color: #fff;
+}
+
+.editBtn:hover {
+  background: #1a1b4b;
+}
+
+.deleteBtn {
+  background: #dc3545;
+  color: #fff;
+}
+
+.deleteBtn:hover {
+  background: #a71d2a;
+}
+
+/* Center Alert */
+.alert {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #ffffff;
+  padding: 30px 60px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-align: center;
+  color: #1a1b4b;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.4s ease-in-out, fadeOut 2.4s ease-in-out forwards;
+  z-index: 9999;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

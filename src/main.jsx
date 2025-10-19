@@ -11,8 +11,10 @@ import ProductDetails from "./pages/productDetails/ProductDetails";
 import Cart from "./pages/cart/Cart";
 import Favorites from "./pages/favorites/Favorites";
 import Profile from "./pages/profile/Profile";
-import About from "./pages/about/About"; //  صفحة about
-import Contact from "./pages/contact/Contact"; //  صفحة contact
+import MyOrders from "./pages/profile/MyOrders";
+import Addresses from "./pages/profile/Addresses";
+import About from "./pages/about/About";
+import Contact from "./pages/contact/Contact";
 import "./index.css";
 
 const router = createBrowserRouter([
@@ -27,8 +29,10 @@ const router = createBrowserRouter([
       { path: "/cart", element: <Cart /> },
       { path: "/favorites", element: <Favorites /> },
       { path: "/profile", element: <Profile /> },
-      { path: "/about", element: <About /> },  
-      { path: "/contact", element: <Contact /> },  
+      { path: "/myorders", element: <MyOrders /> },
+      { path: "/addresses", element: <Addresses /> },
+      { path: "/about", element: <About /> },
+      { path: "/contact", element: <Contact /> },
     ],
   },
   { path: "/create-account", element: <CreateAccount /> },

@@ -4,26 +4,75 @@ import Footer from "../../components/footer/Footer";
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
-  const [stage, setStage] = useState("empty"); // empty | filled | checkout
-  const [formData, setFormData] = useState({ name: "", address: "", card: "" });
+  const [stage, setStage] = useState("empty");
+  const [formData, setFormData] = useState({
+    name: "",
+    address: "",
+    card: "",
+    payment: "",
+  });
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+  const [showRemoveAlert, setShowRemoveAlert] = useState(false);
+  const [showPurchaseAlert, setShowPurchaseAlert] = useState(false);
 
-  // load cart
+  // تحميل الكارت
   useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(stored);
     setStage(stored.length > 0 ? "filled" : "empty");
+
+    // تسجيل جميع منتجات الكارت كـ Pending في MyOrders
+    if (stored.length > 0) {
+      const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+      const pendingOrders = stored.map((item) => ({
+        ...item,
+        status: "Pending",
+        date: new Date().toLocaleDateString(),
+      }));
+
+      // دمج دون تكرار
+      const mergedOrders = [
+        ...existingOrders.filter(
+          (o) => !stored.some((c) => c.id === o.id && o.status === "Pending")
+        ),
+        ...pendingOrders,
+      ];
+
+      localStorage.setItem("orders", JSON.stringify(mergedOrders));
+    }
   }, []);
 
+  const updateOrders = (product, status) => {
+    const existingOrders = JSON.parse(localStorage.getItem("orders")) || [];
+    const updatedOrders = [
+      ...existingOrders.filter((o) => o.id !== product.id),
+      { ...product, status, date: new Date().toLocaleDateString() },
+    ];
+    localStorage.setItem("orders", JSON.stringify(updatedOrders));
+  };
+
   const removeItem = (id) => {
+    const confirmed = window.confirm("Are you sure you want to remove this product?");
+    if (!confirmed) return;
+
+    const item = cart.find((i) => i.id === id);
+    updateOrders(item, "Cancelled");
+
     const updated = cart.filter((item) => item.id !== id);
     setCart(updated);
     localStorage.setItem("cart", JSON.stringify(updated));
     if (updated.length === 0) setStage("empty");
+
+    setShowRemoveAlert(true);
+    setTimeout(() => setShowRemoveAlert(false), 2500);
   };
 
   const clearCart = () => {
+    const confirmed = window.confirm("Are you sure you want to clear your cart?");
+    if (!confirmed) return;
+
+    cart.forEach((item) => updateOrders(item, "Cancelled"));
     setCart([]);
     localStorage.removeItem("cart");
     setStage("empty");
@@ -36,18 +85,30 @@ const Cart = () => {
 
   const handlePayment = (e) => {
     e.preventDefault();
-    const { name, address, card } = formData;
-    if (!name || !address || !card) {
-      setError("Please fill all fields correctly.");
+    const { name, address, card, payment } = formData;
+
+    if (!name || !address || !card || !payment) {
+      setError("Please fill all fields and select a payment method.");
       return;
     }
+
     setError("");
-    setSuccess(true);
-    clearCart();
+    setShowPurchaseAlert(true);
+
     setTimeout(() => {
-      setStage("empty");
-      setSuccess(false);
-    }, 4000);
+      // تحديث الطلبات إلى Completed
+      cart.forEach((item) => updateOrders(item, "Completed"));
+
+      setShowPurchaseAlert(false);
+      setSuccess(true);
+      localStorage.removeItem("cart");
+      setCart([]);
+
+      setTimeout(() => {
+        setStage("empty");
+        setSuccess(false);
+      }, 3000);
+    }, 2000);
   };
 
   return (
@@ -133,6 +194,73 @@ const Cart = () => {
                 value={formData.card}
                 onChange={handleChange}
               />
+
+              <div className={styles.paymentSection}>
+                <label className={styles.paymentLabel}>Card</label>
+                <div className={styles.paymentOptions}>
+                  <label
+                    className={`${styles.paymentOption} ${
+                      formData.payment === "visa" ? styles.selected : ""
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="visa"
+                      checked={formData.payment === "visa"}
+                      onChange={handleChange}
+                    />
+                    <div className={`${styles.cardBox} ${styles.visa}`}>
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg"
+                        alt="Visa"
+                      />
+                    </div>
+                  </label>
+
+                  <label
+                    className={`${styles.paymentOption} ${
+                      formData.payment === "applepay" ? styles.selected : ""
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="applepay"
+                      checked={formData.payment === "applepay"}
+                      onChange={handleChange}
+                    />
+                    <div className={styles.cardBox}>
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                        alt="Apple Pay"
+                      />
+                      <span>Apple Pay</span>
+                    </div>
+                  </label>
+
+                  <label
+                    className={`${styles.paymentOption} ${
+                      formData.payment === "mastercard" ? styles.selected : ""
+                    }`}
+                  >
+                    <input
+                      type="radio"
+                      name="payment"
+                      value="mastercard"
+                      checked={formData.payment === "mastercard"}
+                      onChange={handleChange}
+                    />
+                    <div className={styles.cardBox}>
+                      <img
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/512px-Mastercard-logo.svg.png"
+                        alt="MasterCard"
+                      />
+                    </div>
+                  </label>
+                </div>
+              </div>
+
               {error && <p className={styles.error}>{error}</p>}
               <button type="submit" className={styles.payBtn}>
                 Pay Now
@@ -145,6 +273,20 @@ const Cart = () => {
           <div className={styles.successMsg}>
             <h2>🎉 Purchase Completed Successfully!</h2>
             <p>Thank you for shopping with us.</p>
+          </div>
+        )}
+
+        {showPurchaseAlert && (
+          <div className={styles.purchaseAlert}>
+            <h2>💳 Confirming Purchase...</h2>
+            <p>Your payment is being processed, please wait.</p>
+          </div>
+        )}
+
+        {showRemoveAlert && (
+          <div className={styles.bigRemoveAlert}>
+            <h2>🗑️ Product Removed!</h2>
+            <p>The item has been successfully removed from your cart.</p>
           </div>
         )}
       </div>

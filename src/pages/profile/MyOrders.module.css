@@ -1,0 +1,206 @@
+.ordersContainer {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #1a1b4b;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.header h2 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #1a1b4b;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.tabBtn {
+  background: #fff;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-weight: 600;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tabBtn:hover {
+  border-color: #48b8b5;
+  color: #48b8b5;
+}
+
+.active {
+  background-color: #48b8b5;
+  color: #fff;
+  border-color: #48b8b5;
+}
+
+/* Orders Grid */
+.ordersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+}
+
+.orderCard {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: 0.3s ease;
+}
+
+.orderCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.orderCard img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.orderDetails {
+  padding: 14px;
+  text-align: left;
+}
+
+.orderDetails h4 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.category {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.price {
+  font-weight: 700;
+  color: #48b8b5;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Status */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.pending {
+  background-color: #fff6e5;
+  color: #ff9800;
+}
+
+.completed {
+  background-color: #e7f8ec;
+  color: #28a745;
+}
+
+.cancelled {
+  background-color: #fdecec;
+  color: #dc3545;
+}
+
+/* Buttons */
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.cancelBtn,
+.reorderBtn {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.cancelBtn {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.cancelBtn:hover {
+  background-color: #a71d2a;
+}
+
+.reorderBtn {
+  background-color: #48b8b5;
+  color: #fff;
+}
+
+.reorderBtn:hover {
+  background-color: #1a1b4b;
+}
+
+/* Loading */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+  color: #48b8b5;
+}
+
+.spinner {
+  border: 4px solid #eee;
+  border-top: 4px solid #48b8b5;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .tabBtn {
+    flex: 1;
+    text-align: center;
+  }
+
+  .orderCard img {
+    height: 160px;
+  }
+}

@@ -11,6 +11,7 @@ import {
   FaSave,
 } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import defaultAvatar from "../../assets/images/default-avatar.jpg";
 
 const Profile = () => {
   const navigate = useNavigate();
@@ -35,8 +36,8 @@ const Profile = () => {
 
   const handleSave = () => {
     localStorage.setItem("user", JSON.stringify(userData));
-    alert("✅ Profile updated successfully!");
     setIsEditing(false);
+    alert("Profile updated successfully!");
   };
 
   const handleLogout = () => {
@@ -49,14 +50,14 @@ const Profile = () => {
       <aside className={styles.sidebar}>
         <div className={styles.userInfo}>
           <img
-            src="https://i.ibb.co/0q8K3sZ/default-avatar.jpg"
-            alt="User"
+            src={defaultAvatar}
+            alt="User Avatar"
             className={styles.avatar}
           />
           <h3>
             {userData.firstName || "User"} {userData.lastName || ""}
           </h3>
-          <p>Cairo, Egypt</p>
+          <p>Bethlehem, Palestine</p>
         </div>
 
         <nav className={styles.navMenu}>
@@ -64,10 +65,10 @@ const Profile = () => {
             <li className={styles.active}>
               <FaUser /> My Profile
             </li>
-            <li>
+            <li onClick={() => navigate("/myorders")}>
               <FaClipboardList /> My Orders
             </li>
-            <li>
+            <li onClick={() => navigate("/addresses")}>
               <FaMapMarkerAlt /> Addresses
             </li>
             <li>
@@ -148,18 +149,21 @@ const Profile = () => {
         </div>
 
         <div className={styles.buttons}>
-          {!isEditing ? (
-            <button
-              className={styles.editBtn}
-              onClick={() => setIsEditing(true)}
-            >
-              <FaEdit /> Edit
-            </button>
-          ) : (
-            <button className={styles.saveBtn} onClick={handleSave}>
-              <FaSave /> Save Changes
-            </button>
-          )}
+          <button
+            className={styles.editBtn}
+            onClick={() => setIsEditing(true)}
+            disabled={isEditing}
+          >
+            <FaEdit /> Edit
+          </button>
+
+          <button
+            className={styles.saveBtn}
+            onClick={handleSave}
+            disabled={!isEditing}
+          >
+            <FaSave /> Save Changes
+          </button>
         </div>
       </main>
     </div>
